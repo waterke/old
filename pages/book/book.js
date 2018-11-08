@@ -1,15 +1,27 @@
 // pages/book/book.js
 import {
   BookModels
-} from '../../models/book.js'
+} from '../../models/book.js';
+import {
+  KeywordModel
+} from "../../models/keyword.js";
+import {
+  randomMore
+} from "../../util/common.js"
 const bookModel = new BookModels();
+const keywordModel = new KeywordModel();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    book:[]
+    book:[],
+    searching:true,
+    hotKeywordList:[],
+    searchResult:[],
+    searchings:false,
+    more:""
   },
 
   /**
@@ -22,8 +34,31 @@ Page({
         book:res
       })
     })
+    bookModel.getHotKeyword().then(res=>{
+      this.setData({
+        hotKeywordList:res.hot
+      })
+    })
   },
-
+  onSearch(event){
+    this.setData({
+      searching:false,
+    })
+  },
+  onCancel(event){
+    this.setData({
+      searching:true
+    })
+  },
+  onSreaching(event){
+    bookModel.getSearch(0,event.detail.val)
+      .then(res=>{
+        this.setData({
+          searchResult:res.books
+        })
+        keywordModel.addHistory(event.detail.val);
+      })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -63,7 +98,10 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    // console.log(randomMore(16))
+    this.setData({
+      more:randomMore(16),
+    })
   },
 
   /**

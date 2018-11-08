@@ -1,6 +1,7 @@
-<view class="book-container" >
+<!-- <view class=""> -->
+<view class="book-container" wx:if="{{searching}}" >
     <view class="headers">
-        <view class="header-box">
+        <view class="header-box" bind:tap="onSearch">
             <image class="heaader-img" src="/images/icon/search.png" ></image>
             <text class="">搜索图书名称</text>
         </view>
@@ -14,5 +15,17 @@
         </view>
     </view>
 </view>
+<v-search 
+    more="{{more}}"
+    searchings="{{searchings}}"
+    searchResult="{{searchResult}}" 
+    bind:onSreaching="onSreaching"
+    hotKeywordList="{{hotKeywordList}}" 
+    bind:cancel = "onCancel" 
+    wx:if="{{!searching}}"
+    ></v-search>
   
+<!-- </view> -->
+  
+
 

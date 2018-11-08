@@ -36,5 +36,19 @@ class BookModels extends HTTP {
             }
         })
     }
+    getHotKeyword(){
+        return this.request({
+            url:'book/hot_keyword'
+        })
+    }
+    getSearch(start,content){
+        return this.request({
+            url:'book/search?summary=1',
+            data:{
+               start:start,
+               q:content 
+            }
+        })
+    }
 }
 export {BookModels}

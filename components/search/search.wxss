@@ -1,0 +1,122 @@
+/* components/search/search.wxss */
+.search-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.container{
+    width: 690rpx;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    padding:25rpx 30rpx;
+    border-bottom: 1px solid #eeeeee;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+.searching-box{
+    position: relative;
+    top: 120rpx;
+}
+.search-book-result{
+    position: relative;
+    top: 120rpx;
+}
+.search-bookList{
+    /* width: 690rpx; */
+    padding: 30rpx 90rpx;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+.search-header{
+    width: 78%;
+    height: 66rpx;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background: #f7f7f7;
+    border-radius: 20px;
+    padding: 0rpx 20rpx 0rpx 20rpx;
+}
+.searchImg{
+    width: 28rpx;
+    height: 28rpx;
+}
+.cancelImg{
+    width: 24rpx;
+    height: 24rpx;
+}
+.searchings{
+    width: 86%;
+    height: 66rpx;
+    line-height: 66rpx;
+    font-size:28rpx;
+    color: #999999;
+    line-height: 28rpx;
+    height: 100%;
+}
+.search-cancel{
+    width: 100rpx;
+    height: 60rpx;
+    border-radius: 20px;
+    border: 1px solid #666;
+    color: #666;
+    font-size: 28rpx;
+    line-height: 28rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.histroyTag{
+    width: 690rpx;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding:30rpx 20rpx 10rpx 20rpx;
+}
+
+.histroy-title{
+    width: 100%;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: flex-start;
+    /* justify-content: center; */
+}
+.lines{
+    width: 8rpx;
+    height: 28rpx;
+    background: #000;  
+    margin-right: 15rpx;
+}
+.title-all{
+    font-size: 28rpx;
+    line-height: 28rpx;
+    vertical-align: middle;
+}
+.history-tag{
+    padding: 20rpx;
+    /* width: 94%; */
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.tags{
+    margin-right: 10rpx;
+    margin-bottom: 15rpx;
+}
+.hotTag{
+    padding-top: 10rpx;
+}
+.hot-title{
+
+}

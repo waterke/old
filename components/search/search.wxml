@@ -1,0 +1,42 @@
+<view class="search-container">
+    <view class="container">
+        <view class="search-header">
+            <image class="searchImg" src="./images/search.png"></image>
+            <input bindconfirm = "onHistory" class="searchings" type="text" value="{{valueInp}}" placeholder="搜索图书名称" auto-focus="{{true}}"/>
+            <image class="cancelImg" bind:tap="onTapcancels" src="./images/cancel.png"></image>
+        </view>
+        <view class="search-cancel" bind:tap="onCancel">取消</view>
+    </view>
+    <view class="searching-box" wx:if="{{!searchings}}">
+        <view class="histroyTag">
+            <view class="histroy-title">
+                <view class="lines"></view>
+                <view class="title-all">历史搜索</view>
+            </view>
+            <view class="history-tag">
+                <block wx:for="{{historyList}}" wx:key="item">
+                    <v-tag class="tags" bind:tapping="onHistory" text="{{item}}"></v-tag>
+                </block>
+            </view>
+        </view>
+        <view class="histroyTag hotTag">
+            <view class="histroy-title">
+                <view class="lines"></view>
+                <view class="title-all">热门搜索</view>
+            </view>
+            <view class="history-tag">
+                <block wx:for="{{hotKeywordList}}" wx:key="item">
+                    <v-tag class="tags" bind:tapping="onHistory" text="{{item}}"></v-tag>
+                </block>
+            </view>
+        </view>  
+    </view>
+    <view class="search-book-result" wx:if="{{searchings}}">
+        <view class="search-bookList">
+            <block wx:for="{{searchResult}}" wx:key="id">
+                <v-book class="bookHot" book="{{item}}"/>
+            </block>
+        </view>
+    </view>
+      
+</view>
