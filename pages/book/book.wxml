@@ -1,0 +1,18 @@
+<view class="book-container" >
+    <view class="headers">
+        <view class="header-box">
+            <image class="heaader-img" src="/images/icon/search.png" ></image>
+            <text class="">搜索图书名称</text>
+        </view>
+    </view>
+    <view class="book-content">
+        <image class="book-img" src="/images/book/quality.png"/>
+        <view class="bookList">
+            <block wx:for="{{book}}" wx:key="id">
+                <v-book class="bookHot" book="{{item}}"/>
+            </block>
+        </view>
+    </view>
+</view>
+  
+

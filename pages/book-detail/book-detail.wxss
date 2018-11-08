@@ -1,0 +1,203 @@
+/* pages/book-detail/book-detail.wxss */
+.container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f5f5f5;
+}
+.header{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #ffffff;
+    padding: 30rpx 0rpx;
+}
+.header .bookImg{
+    width: 204rpx;
+    height: 306rpx;
+    box-shadow: 2px 2px 10px #e3e3e3;
+}
+.header .title{
+    font-size:34rpx;
+    line-height: 60rpx;
+    margin-top: 10rpx;
+}
+.header .author{
+    font-size:24rpx;
+    color:#999999;
+}
+.sub-container {
+    width: 690rpx;
+    margin-top: 20rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    padding: 30rpx;
+}
+
+.headline {
+    font-size:30rpx;
+    color: #2f2f2f;
+    font-weight: 600;
+    margin-bottom: 20rpx;
+}
+.comment-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.comment-container v-tag {
+    margin-right: 15rpx;
+    margin-bottom:10rpx;
+}
+/* 破坏了组件的封装性，，不可取   */
+/* .comment-container > v-tag:nth-child(1) > view{
+    background: #fffadd;
+}
+.comment-container > v-tag:nth-child(2) > view{
+    background: #eefaff;
+} */
+.content {
+    text-indent: 58rpx;
+    font-weight: 500;
+    color: #666666;
+}
+.num {
+    margin-left:10rpx;
+    font-size:22rpx;
+    color: #aaa;
+}
+/* 外部样式传递到组件中 不加！important 样式不会覆盖原来的样式  */
+.ex-tag1{
+    background: #fffadd !important;
+}
+.ex-tag2{
+    background: #eefaff !important;
+}
+.sub-bottom{
+    margin-bottom:80rpx;
+}
+.detail-bx{
+    width: 100%;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    line-height: 50rpx;
+}
+.book-left{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 110rpx;
+    margin-right: 30rpx;
+    color: #c9c9c9;
+}
+.book-right{
+    display: flex;
+    color: #a3a3a3;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.post-container{
+    width: 690rpx;
+    position: fixed;
+    box-shadow: 1px -1px 1px #e3e3e3;
+    z-index: 10000;
+    bottom: 0;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:center;
+    background: #fff;
+    padding: 20rpx 30rpx;
+}
+.post-fake{
+    width: 410rpx;
+    border: 1px solid #666666;
+    border-radius: 20px;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+}
+.post-text{
+    font-size: 24rpx;
+    line-height: 56rpx;
+}
+.exit-post{
+    width: 24rpx;
+    height:24rpx;
+    margin:0 15rpx 0 20rpx;
+}
+.post-containers{
+    width: 690rpx;
+    position: fixed;
+    /* box-shadow: 1px -1px 1px #e3e3e3; */
+    z-index: 10000;
+    bottom: 0;
+    display: inline-flex;
+    flex-direction: column;
+    background: #fff;
+    padding: 0 30rpx;
+}
+.post-isSure{
+    height: 100rpx;
+    /* padding: 0 30rpx; */
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom:1px solid #eeeeee;
+    align-items: center;
+}
+.post-isSure>text:first-child {
+    font-size: 28rpx;
+    color: #bbb;
+}
+.tag-container{
+    height: 100rpx;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-top:10rpx;
+    /* padding-bottom: 5rpx; */
+}
+.tag-container v-tag {
+    margin-right: 15rpx;
+    margin-bottom:10rpx;
+}
+.cancel{
+    color: #666;
+    height: 100%;
+    line-height: 100rpx;
+}
+.posting{
+    /* height: 110rpx; */
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 20rpx;
+    padding-top: 10rpx;
+}
+.posting input{
+    /* flex:1; */
+    width: 100%;
+    height: 68rpx;
+    background: #f5f5f5;
+    color: #999999;
+    border-radius: 20px;
+    padding-left:30rpx;
+}
+/* .posting .sure{
+    display: flex;
+    height: 68rpx;
+    line-height: 68rpx;
+    padding: 0 0 0 20rpx;
+} */
+.shadow{
+    color: #999999;
+}

@@ -1,0 +1,22 @@
+.classic_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.classic_container .img_content{
+    width: 750rpx;
+    height:500rpx;
+}
+.classic_container .text{
+    max-width: 600rpx;
+    font-size: 36rpx;
+    color: #0f0f0f;
+    line-height: 50rpx;
+}
+.classic_container .movie_imgtag,.classic_container .essay_imgtag{
+    position: relative;
+    right: 310rpx;
+    bottom: 60rpx;
+    width: 46rpx;
+    height: 142rpx;
+}

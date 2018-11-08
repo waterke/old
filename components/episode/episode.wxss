@@ -1,0 +1,44 @@
+/* components/episode/episode.wxss */
+.episode-container{
+    height: 60rpx;
+    display: inline-flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+.episode_index_left{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+.episode_index_left .episode_text{
+    font-size: 32rpx;
+}
+.episode_index_left .episode_index{
+    font-size:60rpx;
+    line-height:60rpx; 
+    font-weight:800;
+    margin-right:14rpx;
+}
+.episode_index_left .line{
+    /* width: 2rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    background: #000;
+    margin:0 12rpx; */
+    height:44rpx;
+    margin-right:14rpx;
+    border-left:1px solid black;
+}
+.episode_index_right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 6rpx;
+}
+.episode_index_right .month{
+    font-size: 24rpx;
+    line-height: 24rpx;
+}
+.episode_index_right .year{
+    font-size: 20rpx;
+}

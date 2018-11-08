@@ -1,0 +1,11 @@
+<view class="episode-container">
+    <view class="episode_index_left">
+        <text class="episode_text">No.</text>
+        <text class="episode_index">{{_index}}</text>
+        <view class="line"></view>
+    </view>
+    <view class="episode_index_right">
+        <text class="month">{{month}}</text>
+        <text class="year">{{year}}</text>
+    </view>
+</view>

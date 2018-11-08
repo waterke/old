@@ -1,0 +1,50 @@
+/* components/classic/music/music.wxss */
+.container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* overflow: hidden; */
+}
+.img_content{
+    width: 422rpx;
+    height: 422rpx;
+    margin-top:60rpx;
+    border-radius: 50%;
+}
+.music_imgStatus{
+    width: 120rpx;
+    height: 120rpx;
+    position: relative;
+    bottom: 270rpx;
+}
+.music_imgtag{
+    width:44rpx;
+    height:128rpx;
+    position: relative;
+    bottom: 160rpx;
+    right:310rpx;
+}
+.container .content{
+    max-width: 600rpx;
+    font-size: 36rpx;
+    color: #0f0f0f;
+    line-height: 50rpx;
+}
+/* 旋转动画 */
+.rotation{
+    -webkit-transform: rotate(360deg);
+    animation: rotate 12s linear infinite;
+    -moz-animation: rotate 12s linear infinite;
+    -o-animation:rotate 12s linear infinite ;
+    /* -ms-animation:rotate 7s linear infinite; */
+    -webkit-animation: rotate 12s linear infinite;
+}
+@keyframes rotate{
+    0%{
+        -webkit-transform: rotate(0deg)
+    }
+    100%{
+        -webkit-transform: rotate(360deg)
+    }
+}

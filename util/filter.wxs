@@ -1,0 +1,16 @@
+var format = function(text){
+    // console.log(text)  如果text值不存在  就跳出函数不执行
+    if(!text){
+        return;
+    }
+    var reg = getRegExp('\\\\n','g');
+    return text.replace(reg,'\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+    // return "1223";//return 语句结束后继续加   ;  号 表示结尾
+}
+var limit = function(array,length){
+    return array.slice(0,length)
+}
+module.exports = {
+    format: format,
+    limit:limit
+};

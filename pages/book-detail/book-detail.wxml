@@ -1,0 +1,100 @@
+<wxs src="../../util/filter.wxs" module="util"></wxs>
+
+<view class="container">
+    <view class="header">
+        <image class="bookImg" src="{{book.image}}" ></image>
+        <text class="title" > {{book.title}}</text>
+        <text class="author" > {{book.author}}</text>
+    </view>
+    <view class="sub-container">
+        <text class="headline">短评</text>
+        <text class="shadow" wx:if="{{comment == false}}">还没有短评哦~</text>
+        <view class="comment-container" >
+             <block wx:for="{{util.limit(comment,15)}}" wx:key="content">
+             <!--第一种写法 tag-class="{{index===0?'ex-tag1':'' || index===1?'ex-tag2':''}}"
+                  外部样式改变组件默认样式
+              -->
+              <!-- 第二种写法wxs  tools.highLight(index) -->
+                <v-tag class="tags" tag-class="{{tools.highLight(index)}}" text="{{item.content}}">
+                    <view class="num" slot="after">
+                        {{"+" + item.nums}}
+                    </view>
+                </v-tag>
+             </block>
+        </view>
+    </view>
+    <view class="sub-container">
+        <text class="headline">内容简介</text>
+        <text class="content" decode="{{true}}">{{util.format(book.summary)}}</text>
+    </view>
+    <view class="sub-container sub-bottom">
+        <text class="headline">书本信息</text>
+        <view class="detail-bx">
+            <view class="book-left">
+                <text>出版社</text>
+                <text>出版年</text>
+                <text>页数</text>
+                <text>定价</text>
+                <text>精装</text>
+                <text>ISBN</text>
+            </view>
+            <view class="book-right">
+                <text>{{book.publisher}}</text>
+                <text>{{book.pubdate}}</text>
+                <text>{{book.pages}}</text>
+                <text>{{book.price}}</text>
+                <text>{{book.binding}}</text>
+                <text>{{book.isbn}}</text>
+            </view>
+        </view>
+        
+    </view>
+</view>
+<view class="post-container" wx:if="{{!posting}}">
+    <view bind:tap="onPostFake" class="post-fake" >
+        <image class="exit-post" src="/images/detail/exit@Detail.png"></image>
+        <text class="post-text">留下你的短评</text>
+    </view>
+    <view class="postLike-container">
+        <v-like clsas="like" bind:like="onLike" like="{{like_Status}}" count="{{likeCount}}"></v-like>  
+    </view>
+    <view class=""> 
+    </view>
+</view>
+<view class="post-containers" wx:if="{{posting}}">
+    <view class="post-isSure">
+        <text wx:if="{{comment == true}}">仅点击标签+1</text>
+        <text wx:else>暂无短评</text>
+        <!-- <text wx:if="{{comment == false}}">暂无短评</text> -->
+        <text class="cancel" bind:tap="onCancel">取消</text>
+    </view>
+    <view class="tag-container">
+         <block wx:for="{{util.limit(comment,3)}}" wx:key="content">
+                <v-tag bind:tapping = "onPost" class="tags" tag-class="{{tools.highLight(index)}}" text="{{item.content}}">
+                    <view class="num" slot="after">
+                        {{"+" + item.nums}}
+                    </view>
+                </v-tag>
+          </block>
+    </view>
+    <view class="posting">
+        <input type="text" bindconfirm="onPost" placeholder="输入您的短评，可输入12字" />
+        <!-- <text class="sure" bind:tap = "onPost(inputVal)">确定</text> -->
+    </view>
+</view>
+<v-mask wx:if="{{posting}}" bind:tap="onCancel" />
+<!-- 优化tag标签  前两个高亮背景 -->
+<wxs module="tools">
+    var highLight = function(index){
+        if(index===0){
+            return 'ex-tag1';
+        }else if(index===1){
+            return 'ex-tag2';
+        }else{
+            return '';
+        }
+    }
+    module.exports = {
+        highLight:highLight
+    }
+</wxs>
