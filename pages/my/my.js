@@ -12,7 +12,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+      // wx.getUserInfo({
+      //   withCredentials: 'false',
+      //   lang: 'zh_CN',
+      //   timeout:10000,
+      //   success: (result)=>{
+          
+      //   },
+      //   fail: ()=>{},
+      //   complete: ()=>{}
+      // });
+  },
+  getUserInfo(event){
+    console.log(event)
   },
 
   /**

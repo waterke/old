@@ -1,1 +1,64 @@
 /* pages/my/my.wxss */
+.container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.header-bg{
+    width: 100%;
+    /* height:  */
+}
+.my-headers{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: -280rpx;
+}
+.author-my{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.userAvatar{
+    display: flex;
+    width: 120rpx;
+    height: 120rpx;
+    overflow: hidden;
+    border-radius: 50%;
+    /* 必须加overflow：hidden    不然border-radius不起作用 */
+}
+.userNick{
+    /* width: 120rpx; */
+    /* height: 120rpx; */
+}
+.likes-my{
+    width: 690rpx;
+    height: 100rpx;
+    padding:0rpx 30rpx; 
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.likes-left{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.left-right{
+
+}
+.about-icon{
+    width: 34rpx;
+    height: 34rpx;
+}
+.text-my{
+    color: #a0a0a0;
+    font-size: 24rpx;
+}

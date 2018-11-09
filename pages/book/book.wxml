@@ -15,9 +15,14 @@
         </view>
     </view>
 </view>
+<!-- searchings="{{searchings}}" -->
 <v-search 
     more="{{more}}"
-    searchings="{{searchings}}"
+    loading="{{loading}}"
+    noResult="{{noResult}}"
+    loadingCenter="{{loadingCenter}}"
+    bind:onMoreLoad = "onMoreLoad"
+    total="{{total}}"
     searchResult="{{searchResult}}" 
     bind:onSreaching="onSreaching"
     hotKeywordList="{{hotKeywordList}}" 

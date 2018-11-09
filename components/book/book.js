@@ -5,6 +5,10 @@ Component({
    */
   properties: {
     book:Object,
+    searchs:{
+      type:Boolean,
+      value:false,
+    }
   },
 
   /**
