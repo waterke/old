@@ -116,7 +116,7 @@
     padding: 20rpx 30rpx;
 }
 .post-fake{
-    width: 410rpx;
+    width: 490rpx;
     border: 1px solid #666666;
     border-radius: 20px;
     display: inline-flex;
@@ -200,4 +200,16 @@
 } */
 .shadow{
     color: #999999;
+}
+.postLike-container{
+        width: 140rpx;
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+}
+.share{
+    width: 40rpx;
+    height: 40rpx;
+    margin-top:33rpx;
 }

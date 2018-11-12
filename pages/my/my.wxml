@@ -1,24 +1,42 @@
 
 <view class="container">
-    <image class="header-bg" src="/images/my/my@bg.png" > </image>      
-    <view class="my-headers">
-        <view class="author-my">
-            <open-data class="userAvatar" type="userAvatarUrl" ></open-data>
-            <open-data class="userNick" type="userNickName" ></open-data>
-        </view>
-        <view class="likes-my">
-            <view class="likes-left">
-                <image class="about-icon" src="/images/my/about.png" ></image>
-                <text class="text-my" >关于我们</text>
+    <view class="head-container">
+        <image class="header-bg" src="/images/my/my@bg.png" > </image>      
+        <view class="my-headers">
+            <!-- <open-data class="userAvatar" type="userAvatarUrl" ></open-data>
+                <open-data class="userNick" type="userNickName" ></open-data> -->
+            <view class="author-my" wx:if="{{!authorize}}">
+            <v-button open-type="getUserInfo" bind:getUserinfo="OngetUserInfo">
+                    <image class="myImg" src="/images/my/my.png" slot="img"></image>
+            </v-button>
             </view>
-            <view class="likes-left">
-                <text class="" >17</text>
-                <text class="text-my" >我的书单</text>
+            <view class="author-my" wx:if="{{authorize}}">
+                <image class="myImg" src="{{userInfo.avatarUrl}}" slot="img"></image>
+                <text class="myNickname">{{userInfo.nickName}}</text> 
+            </view>
+            <view class="likes-my">
+                <view class="likes-left" bind:tap="onJumpToAbout">
+                    <image class="about-icon" src="/images/my/about.png" ></image>
+                    <text class="text-my" >关于我们</text>
+                </view>
+                <view class="likes-left">
+                    <text class="about-num" >{{count}}</text>
+                    <text class="text-my" >我的书单</text>
+                </view>
             </view>
         </view>
     </view>
-    <view class="" >
-        
+      
+    
+    <view class="my-favors">
+        <image class="favor-bg" src="/images/my/like.png" ></image>  
+        <view class="preview-container">
+            <block wx:for="{{classics}}" wx:key="index">
+                <v-preview bind:tapping="onJumpToDetail" class="preview" classics="{{item}}"/>
+            </block>   
+        </view>
     </view>
-    <button open-type="getUserInfo" >授权</button>
+    <!-- 新版小程序用户授权需要用button点击授权，， -->
+    <!-- <button open-type="getUserInfo" >授权</button> -->
 </view>
+<image bind:tap="onStudy" class="study" src="/images/my/study.png"></image>

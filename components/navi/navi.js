@@ -7,6 +7,7 @@ Component({
     title:String,
     latest:Boolean,//是否为最新一期
     first: Boolean,//是否为最后一期
+    hidden:Boolean
   },
 
   /**

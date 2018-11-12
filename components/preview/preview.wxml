@@ -1,0 +1,10 @@
+<view class="favor-containers" bind:tap="onTap">
+    <view class="favor-titles">
+        <v-tag text="{{textType}}" class="tag"/>
+        <v-like class="like" readOnly="{{readOnly}}" count="{{classics.fav_nums}}" like="{{classics.like_status}}"/>
+    </view>
+    <view class="favor-footer">
+        <image class="{{classics.type==200?'music-img':'other-img'}}" src="{{classics.image}}"></image>
+        <text class="text">{{classics.content}}</text>  
+    </view>     
+</view>

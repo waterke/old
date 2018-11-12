@@ -14,6 +14,11 @@ class BookModels extends HTTP {
             url:`book/${bid}/favor`
         })
     }
+    getBookLike(){
+        return this.request({
+            url:'book/favor/count'
+        })
+    }
     // 获取书籍详情
     getDetailbook(bid){
         return this.request({

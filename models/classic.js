@@ -65,6 +65,22 @@ class ClassicModel extends HTTP {
         let latest = this._getLatestIndex();
         return index == latest? true :false;
     }
+    getMyfavor(srcCallback){
+        this.request({
+            url:'classic/favor',
+            success:(res)=>{
+                srcCallback(res)
+            }    
+        })
+    }
+    // 获取某一期的详情
+    getById(cid, type, success) {
+        let params = {
+            url: `classic/${type}/${cid}`,
+            success: success
+        }
+        this.request(params)
+    }
     // 设置缓存
     _setLatestIndex(index){
         wx.setStorageSync('latest',index);

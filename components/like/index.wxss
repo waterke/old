@@ -4,7 +4,7 @@
     flex-direction: row;
     padding: 10rpx;
 }
-.container image {
+.container .likesImg {
     width: 32rpx;
     height: 28rpx;
 }

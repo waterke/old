@@ -1,1 +1,7 @@
-{}
+{
+    "usingComponents":{
+        "v-button":"/components/img-button/img-button",
+        "v-preview":"/components/preview/preview"
+    },
+    "backgroundColor":"#f5f5f5"
+}

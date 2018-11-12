@@ -1,4 +1,4 @@
-<view class="navi-container">
+<view class="navi-container" hidden="{{hidden}}">
   <image bind:tap="onLeft" class="navi_icon" src='{{latest ? disLeftSrc:leftSrc}}'></image>
   <text class="title_navi">{{title}}</text>
   <image bind:tap="onRight" class="navi_icon" src='{{first ? disRightSrc : rightSrc}}'></image>

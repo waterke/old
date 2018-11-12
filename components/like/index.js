@@ -8,11 +8,13 @@ Component({
       type:Boolean,//值的类型  必填项
       value:false,//默认值   选填项
       observe:function(){
-
       }
     },
     count:{
       type:Number
+    },
+    readOnly:{
+      type:Boolean
     }
   },
 
@@ -30,6 +32,9 @@ Component({
   methods: {
     onLike:function(e){
         // console.log(e);
+        if(this.properties.readOnly){
+          return
+        }
         let like = this.properties.like
         let count = this.properties.count
         count = like?count-1 : count+1

@@ -4,51 +4,52 @@ import {ClassicModel} from "../../models/classic.js"
 import {LikeModel} from "../../models/like.js"
 let classicModel = new ClassicModel();
 let likeModel = new LikeModel();
-Page({
+Component({
   /**
    * 页面的初始数据
    */
+  properties:{
+    cid:Number,
+    type:Number,
+    
+  },
   data: {
     classic:null,//最好先初始化一下，养成良好的编码习惯
     first:false,
     latest:true,//由于获取的是最新一期的接口，所以默认为最新一期，latest为true
     likeCount:0,
     likeStatus:false,//加入缓存后把点赞状态分离出来单独设置
+    isNavi:false
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    classicModel.getLatest((res)=>{
-        // console.log(res)
+  attached(options) {
+    const cid = this.properties.cid
+    const type = this.properties.type
+    console.log(options,cid,type)
+    if (!cid) {
+      // console.log("aaa")
+      classicModel.getLatest((res) => {
         this.setData({
-          classic:res,
-          likeCount:res.fav_nums,
-          likeStatus:res.like_status
+          classic: res,
+          likeCount: res.fav_nums,
+          likeStatus: res.like_status,
         })
-    });
-   
-    // console.log(latest)
-    
-    // console.log(this.data.num)
-    // let that = this
-    // wx.request({
-    //   url:'http://bl.7yue.pro/v1/classic/latest',
-    //   data:{
-
-    //   },
-    //   header:{
-    //     appkey:'h7QS6bCWTuYJfGvY'
-    //   },
-    //   // success:function(res){
-    //   //   console.log(that.data.num)
-    //   // },
-    //   success:(res) => {
-    //     console.log(this.data.num)
-    //   }
-    // })
+      })
+    }
+    else{
+      classicModel.getById(cid, type,res=>{
+        // console.log(res)
+        this._getLikeStatus(res.id, res.type)
+        this.setData({
+          classic: res,
+          latest: classicModel.isLatest(res.index),
+          first: classicModel.isFirst(res.index),
+          isNavi:true
+        }) 
+      })
+    }
   },
-  // 页面进行监听组件自定义事件
+  methods:{
+     // 页面进行监听组件自定义事件
   onLike:function(event){
     // console.log(event.detail.behaviors //like组件里自定义组件带过来的参数,this.data.classic.id,this.data.classic.type)
     likeModel.getLike(event.detail.behaviors,this.data.classic.id,this.data.classic.type)
@@ -91,7 +92,7 @@ Page({
       })
     })
   },
-  _getLikeStatus(artId,ceotory){
+  _getLikeStatus:function(artId,ceotory){
     likeModel.getClassicLikeStatus(artId,ceotory,(res)=>{
       // console.log(res)
       this.setData({
@@ -100,6 +101,51 @@ Page({
       })
     })
   },
+  // _getLikeStatus: function (artID, category) {
+  //   likeModel.getClassicLikeStatus(artID, category,
+  //     (res) => {
+  //       this.setData({
+  //         likeCount: res.fav_nums,
+  //         likeStatus: res.like_status
+  //       })
+  //     })
+  // },
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  // onLoad: function (options) {
+  //   classicModel.getLatest((res)=>{
+  //       // console.log(res)
+  //       this.setData({
+  //         classic:res,
+  //         likeCount:res.fav_nums,
+  //         likeStatus:res.like_status
+  //       })
+  //   });
+   
+  //   // console.log(latest)
+    
+  //   // console.log(this.data.num)
+  //   // let that = this
+  //   // wx.request({
+  //   //   url:'http://bl.7yue.pro/v1/classic/latest',
+  //   //   data:{
+
+  //   //   },
+  //   //   header:{
+  //   //     appkey:'h7QS6bCWTuYJfGvY'
+  //   //   },
+  //   //   // success:function(res){
+  //   //   //   console.log(that.data.num)
+  //   //   // },
+  //   //   success:(res) => {
+  //   //     console.log(this.data.num)
+  //   //   }
+  //   // })
+  // },
+  
+ 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

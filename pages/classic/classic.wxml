@@ -1,16 +1,19 @@
 <view class="classic-container">
     <view class="headers" hover-class="none" hover-stop-propagation="false">
         <v-episode class="headers-episode" index = "{{classic.index}}"></v-episode>
-        <v-like class="headers-like" bind:like="onLike" like="{{likeStatus}}" count="{{likeCount}}"/>
+        <view class="likes-cover">
+            <v-like class="headers-like" bind:like="onLike" like="{{likeStatus}}" count="{{likeCount}}"/>
+            <v-button open-type="share" class="share-icon">
+                <image class="share" slot="img" src="/images/icon/share.png"></image>     
+            </v-button>
+        </view>       
     </view>
     <v-movie class="contents" hidden="{{classic.type != 100}}" content="{{classic.content}}" imgSrc = "{{classic.image}}"></v-movie>
     <!-- <v-music class="contents" hidden="{{classic.type != 200}}" src="{{classic.url}}" content="{{classic.content}}" imgSrc = "{{classic.image}}"></v-music> -->
-   <!-- hidden是没有办法触发组件内部的生命周期的，无法监听播放状态，，wx：if渲染机制是每次切换都会初始化页面，可以触发组件内的生命周期 -->
-   <v-music class="contents" wx:if="{{classic.type == 200}}" src="{{classic.url}}" content="{{classic.content}}" imgSrc = "{{classic.image}}"></v-music>
-
-    <v-essay class="contents" hidden="{{classic.type != 300}}" content="{{classic.content}}" imgSrc = "{{classic.image}}"></v-essay>
-      
-    <v-navi class="navi" bind:left="onNext" bind:right = "onPervious" title="{{classic.title}}" first = "{{first}}" latest="{{latest}}"></v-navi>
+    <!-- hidden是没有办法触发组件内部的生命周期的，无法监听播放状态，，wx：if渲染机制是每次切换都会初始化页面，可以触发组件内的生命周期 -->
+    <v-music class="contents" wx:if="{{classic.type == 200}}" src="{{classic.url}}" content="{{classic.content}}" imgSrc = "{{classic.image}}"></v-music>
+    <v-essay class="contents" hidden="{{classic.type != 300}}" content="{{classic.content}}" imgSrc = "{{classic.image}}"></v-essay>      
+    <v-navi class="navi" hidden="{{isNavi}}" bind:left="onNext" bind:right = "onPervious" title="{{classic.title}}" first = "{{first}}" latest="{{latest}}"></v-navi>
 </view>
   
 

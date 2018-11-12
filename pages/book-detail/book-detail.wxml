@@ -57,13 +57,14 @@
     </view>
     <view class="postLike-container">
         <v-like clsas="like" bind:like="onLike" like="{{like_Status}}" count="{{likeCount}}"></v-like>  
-    </view>
-    <view class=""> 
+        <v-button open-type="share" class="share-icon">
+            <image class="share" slot="img" src="/images/icon/share.png"></image>     
+        </v-button>
     </view>
 </view>
 <view class="post-containers" wx:if="{{posting}}">
     <view class="post-isSure">
-        <text wx:if="{{comment == true}}">仅点击标签+1</text>
+        <text wx:if="{{comment}}">仅点击标签+1</text>
         <text wx:else>暂无短评</text>
         <!-- <text wx:if="{{comment == false}}">暂无短评</text> -->
         <text class="cancel" bind:tap="onCancel">取消</text>
